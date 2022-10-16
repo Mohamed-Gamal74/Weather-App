@@ -1,0 +1,100 @@
+section {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  z-index: 10;
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+.bottom__container {
+  bottom: 10%;
+  background: rgba(110, 110, 110, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+h4 {
+  background: rgba(110, 110, 110, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  width: fit-content;
+  font-size: 3rem;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.right {
+  background: rgba(110, 110, 110, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+button {
+  top: -2px;
+  right: 11px;
+  padding: 20px;
+  border: 0;
+}
+
+button img {
+  filter: invert(100%);
+}
+
+input {
+  border: 0;
+  width: 70%;
+}
+
+input,
+input::placeholder {
+  color: #fff;
+  text-transform: uppercase;
+
+}
+
+input::placeholder {
+  opacity: 0.6;
+}
+
+input:focus {
+  outline: 0;
+}
+
+.city,
+.details,
+input {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.city li {
+  cursor: pointer;
+}
+
+li {
+  opacity: 0.7;
+  transition: 0.3s;
+  padding-bottom: 30px;
+}
+
+li:hover {
+  opacity: 1;
+}
+
+.desc {
+  text-transform: lowercase;
+  color: #c8c8c8;
+}

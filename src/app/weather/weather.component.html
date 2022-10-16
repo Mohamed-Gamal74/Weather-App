@@ -1,0 +1,84 @@
+<section
+  class="vh-100 vw-100 text-uppercase position-relative overflow-hidden"
+  [ngStyle]="{
+    'background-image': temp < 15
+      ? 'url(' + '../../assets/imgs/night5.avif' + ')'
+      : 'url(' + '../../assets/imgs/day1.avif' + ')'
+  }"
+>
+  <div class="row">
+    <div class="left pt-5 ps-5 position-relative vh-100 col-md-8">
+      <h4 class="fw-bolder">The Weather</h4>
+
+      <div
+        class="bottom__container p-3 d-flex align-items-center gap-5 position-absolute"
+      >
+        <h1 class="fw-bold">{{ temp }}&#176;C</h1>
+        <div>
+          <h2>
+            {{ weatherData.name }},
+            <span class="fs-4">{{ weatherData.sys.country }}</span>
+          </h2>
+          <span class="desc d-block">{{
+            weatherData.weather[0].description
+          }}</span>
+        </div>
+
+        <div class="weather">
+          <img
+            [src]="iconSrc"
+            alt="icon"
+            width="50"
+            height="50"
+            class="d-block"
+          />
+          <span>Cloudy</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="right p-5 col-md-4">
+      <form class="mb-5" #form="ngForm" (submit)="handleSubmit()">
+        <input
+          type="text"
+          placeholder="Another Location"
+          class="bg-transparent p-3"
+          name="city"
+          [(ngModel)]="city"
+        />
+        <button type="submit" class="position-absolute"
+        [ngStyle]="{
+          'background': temp < 15
+            ? '#1b1b1b'
+            : '#d66c05'
+        }"
+        >
+          <img src="../../assets/search.svg" alt="search icon" />
+        </button>
+      </form>
+
+      <ul class="city mb-5">
+        <li (click)="ngOnInit()">Alexandria</li>
+        <li (click)="newYork()">New York</li>
+        <li (click)="paris()">Paris</li>
+        <li (click)="tokyo()">Tokyo</li>
+      </ul>
+
+      <ul class="details">
+        <h3 class="mb-5">Weather Details</h3>
+        <li class="d-flex align-items-center justify-content-between">
+          <span>Cloudy</span>
+          <span class="fw-bold">{{ weatherData.weather[0].main }}</span>
+        </li>
+        <li class="d-flex align-items-center justify-content-between">
+          <span>Humidity</span>
+          <span class="fw-bold">{{ weatherData.main.humidity }}%</span>
+        </li>
+        <li class="d-flex align-items-center justify-content-between">
+          <span>Wind</span>
+          <span class="fw-bold">{{ weatherData.wind.speed }} Km/h</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
